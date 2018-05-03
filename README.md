@@ -14,6 +14,3 @@
 
 ## How game will be set up:
 <p> The letters in the word will get replaced with underscores, while the word is still stored somewhere else. There will be a place for the player to input a letter and a space for the body of the "hangman" to appear. </p>
-
-## How errors will be accepted:
-<p>  </p>
