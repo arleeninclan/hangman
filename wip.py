@@ -49,9 +49,15 @@ class Hangman:
         print('You won!')
         self.game_over = True
         together = ''.join(self.chosen_word)
-        print(together)
+        print('The word was: {}'.format(together))
         break
       tries = 'You have {} tries left'.format(self.tries_left)
+      if self.tries_left == 0:
+        self.game_over = True
+        together = ''.join(self.chosen_word)
+        print('You lose! ):')
+        print('The word was: {}'.format(together))
+        break
       print(tries)
   
 
