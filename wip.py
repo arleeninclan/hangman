@@ -17,7 +17,8 @@ class Hangman:
   chosen_word = list(random.choice(WORDS))
   
   tries_left = 10
-  
+  letters_left = []
+
   def __init__(self):
     self.state = ['_' for i in self.chosen_word]
     self.game_over = False
@@ -47,6 +48,7 @@ class Hangman:
         self.state[n] = self.chosen_word[n]
       if index == []:
         self.tries_left -= 1
+      self.letters_left.append(check_letter)
   
   def has_won(self): 
     if is_subset(self.chosen_word, self.state):
@@ -68,6 +70,8 @@ class Hangman:
         print('\nYou lose! ):')
         print('The word was: {}'.format(together))
         break
+      used = 'Letters Guessed: {}'.format(self.letters_left)
+      print(used)
       tries = 'You have {} tries left\n'.format(self.tries_left)
       print(tries)
     
