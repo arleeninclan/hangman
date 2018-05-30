@@ -12,11 +12,11 @@ def search(iterable, obj):
   
 class Hangman:
   
-  WORDS = ['psychology', 'network', 'biology', 'tulips', 'highschool', 'transcript', 'university', 'pneumonia', 'oxygen', 'syndrome', 'wristwatch', 'policeman', 'zodiac', 'microwave', 'transplant','subway', 'transportation', 'celebration', 'fishhook', 'blizzard', 'hurricane', 'tsunami', 'earthquake', 'bookworm', 'temperature', 'potion', 'weather', 'computer', 'classic', 'music', 'literature', 'trigonometry', 'calculus', 'chemistry', 'physics', 'javascript', 'jazz', 'crocodile', 'venus', 'xray', 'itching', 'sleeveless', 'foxes', 'overjoy', 'puzzling', 'python', 'engineering', 'country', 'anatomy', 'synonym','optics', 'lipstick', 'recreation', 'applecider', 'vegetable', 'homework', 'exam', 'violence', 'protest', 'government', 'pangaea', 'earth', 'staircase', 'classroom', 'message', 'security', 'fishtank', 'pineapple', 'jacket', 'shower', 'clarinet', 'flute', 'xray', 'award', 'hangman', 'synapsis', 'mitosis', 'earings', 'boots', 'parrot', 'godfather', 'wedding', 'celebration', 'birthday', 'garden', 'computer', 'consequence', 'education', 'manufacture', 'company']
+  WORDS = ['psychology', 'network', 'biology', 'tulips', 'highschool', 'transcript', 'university', 'pneumonia', 'oxygen', 'syndrome', 'wristwatch', 'policeman', 'zodiac', 'microwave', 'transplant','subway', 'transportation', 'celebration', 'fishhook', 'blizzard', 'hurricane', 'tsunami', 'earthquake', 'bookworm', 'temperature', 'potion', 'weather', 'computer', 'classic', 'music', 'literature', 'trigonometry', 'calculus', 'chemistry', 'physics', 'javascript', 'jazz', 'crocodile', 'venus', 'xray', 'itching', 'sleeveless', 'foxes', 'overjoy', 'puzzling', 'python', 'engineering', 'country', 'anatomy', 'synonym','optics', 'lipstick', 'recreation', 'applecider', 'vegetable', 'homework', 'exam', 'violence', 'protest', 'government', 'pangaea', 'earth', 'staircase', 'classroom', 'message', 'security', 'fishtank', 'pineapple', 'jacket', 'shower', 'clarinet', 'flute', 'xray', 'award', 'hangman', 'synapsis', 'mitosis', 'earings', 'boots', 'parrot', 'godfather', 'wedding', 'celebration', 'birthday', 'garden', 'computer', 'consequence', 'education', 'manufacture', 'company', 'beverage']
   
   chosen_word = list(random.choice(WORDS))
   
-  tries_left = 10
+  tries_left = 8
   letters_left = []
 
   def __init__(self):
@@ -36,9 +36,10 @@ class Hangman:
       return False
     return True
     
-  #INCORPORATE CHECKING FUNCTION INTO MOVE FUNCTION
   
   def move(self):
+    if self.tries_left == 8:
+      print('hangman8.jpg')
     print(self.state)
     check_letter = input("Guess a letter: ")
     check_letter = check_letter.lower()
@@ -49,7 +50,9 @@ class Hangman:
       if index == []:
         self.tries_left -= 1
       self.letters_left.append(check_letter)
-  
+    
+    
+
   def has_won(self): 
     if is_subset(self.chosen_word, self.state):
       return True
@@ -70,10 +73,9 @@ class Hangman:
         print('\nYou lose! ):')
         print('The word was: {}'.format(together))
         break
-      used = 'Letters Guessed: {}'.format(self.letters_left)
+      used = '\nLetters Guessed: {}'.format(self.letters_left)
       print(used)
-      tries = 'You have {} tries left\n'.format(self.tries_left)
-      print(tries)
+      print('hangman' + str(self.tries_left) + '.jpg')
     
   
 
