@@ -40,6 +40,9 @@ class Hangman:
   def move(self):
     if self.tries_left == 8:
       print('hangman8.jpg')
+    else:
+      print('hangman' + str(8 - self.tries_left) + '.jpg')
+
     print(self.state)
     check_letter = input("Guess a letter: ")
     check_letter = check_letter.lower()
@@ -75,7 +78,7 @@ class Hangman:
         break
       used = '\nLetters Guessed: {}'.format(self.letters_left)
       print(used)
-      print('hangman' + str(self.tries_left) + '.jpg')
+
     
   
 
