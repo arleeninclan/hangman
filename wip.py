@@ -39,9 +39,9 @@ class Hangman:
   
   def move(self):
     if self.tries_left == 8:
-      print('hangman8.jpg')
+      print('hangman1.jpg')
     else:
-      print('hangman' + str(8 - self.tries_left) + '.jpg')
+      print('hangman' + str(9 - self.tries_left) + '.jpg')
 
     print(self.state)
     check_letter = input("Guess a letter: ")
