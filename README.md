@@ -4,8 +4,6 @@
 <p> There are two versions to this game. They are one-player and two-player versions. A one-player game will be against the computer and two-player game will be with someone on a different computer. </p>
 ###One-Player Game:
 <p> The computer will spit out a word that was randomly chosen from a huge set of words/phrases, substitute underscores for it, and the player will try and guess it. The game will keep going until player has guessed the word or there are no tries left.</p>
-### Two-Player Game:
-<p> In this version, the players will be allowed to play with each other through different computers. Player 1 will input the word and be substituted with underscores and Player 2 will guess letters, until game is lost/won. </p>
 
 ## How game can be won or lost:
 <p> For every letter that the player will guess, it will be run through a method that will check if the letter is in the word given to guess. </p>
