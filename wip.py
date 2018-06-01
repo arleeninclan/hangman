@@ -1,8 +1,3 @@
-from kivy.app import App 
-from kivy.uix.button import Button 
-from kivy.uix.image import Image 
-from kivy.uix.boxlayout impot BoxLayout 
-from kivy.properties import StringProperty
 import random
 
 def is_subset(subset, superset):
@@ -15,7 +10,7 @@ def search(iterable, obj):
 
 
   
-class HangmanApp(App):
+class Hangman:
   
   WORDS = ['psychology', 'network', 'biology', 'tulips', 'highschool', 'transcript', 'university', 'pneumonia', 'oxygen', 'syndrome', 'wristwatch', 'policeman', 'zodiac', 'microwave', 'transplant','subway', 'transportation', 'celebration', 'fishhook', 'blizzard', 'hurricane', 'tsunami', 'earthquake', 'bookworm', 'temperature', 'potion', 'weather', 'computer', 'classic', 'music', 'literature', 'trigonometry', 'calculus', 'chemistry', 'physics', 'javascript', 'jazz', 'crocodile', 'venus', 'xray', 'itching', 'sleeveless', 'foxes', 'overjoy', 'puzzling', 'python', 'engineering', 'country', 'anatomy', 'synonym','optics', 'lipstick', 'recreation', 'applecider', 'vegetable', 'homework', 'exam', 'violence', 'protest', 'government', 'pangaea', 'earth', 'staircase', 'classroom', 'message', 'security', 'fishtank', 'pineapple', 'jacket', 'shower', 'clarinet', 'flute', 'xray', 'award', 'hangman', 'synapsis', 'mitosis', 'earings', 'boots', 'parrot', 'godfather', 'wedding', 'celebration', 'birthday', 'garden', 'computer', 'consequence', 'education', 'manufacture', 'company', 'beverage']
   
@@ -23,11 +18,7 @@ class HangmanApp(App):
   
   tries_left = 8
   letters_left = []
-  val = StringProperty('1')
-  
-  def build(self):
-      return HangMan()
-      
+
   def __init__(self):
     self.state = ['_' for i in self.chosen_word]
     self.game_over = False
@@ -48,9 +39,9 @@ class HangmanApp(App):
   
   def move(self):
     if self.tries_left == 8:
-      self.val = str(1)
+      print('hangman1.jpg')
     else:
-      self.val = str(9 - self.tries_left)
+      print('hangman' + str(9 - self.tries_left) + '.jpg')
 
     print(self.state)
     check_letter = input("Guess a letter: ")
@@ -59,9 +50,13 @@ class HangmanApp(App):
       index = search(self.chosen_word, check_letter)
       for n in index:
         self.state[n] = self.chosen_word[n]
-      if index == []:
-        self.tries_left -= 1
-      self.letters_left.append(check_letter)
+      if len(list(check_letter)) > 1:
+        print("Please try one letter.")
+      else:
+        if index == []:
+          self.tries_left -= 1
+        self.letters_left.append(check_letter)
+      
     
     
 
@@ -89,8 +84,7 @@ class HangmanApp(App):
       print(used)
 
     
-if __name__ == '__main__':
-    HangmanApp().run()  
+  
 
 #-------------END-------------#
 game = Hangman()
