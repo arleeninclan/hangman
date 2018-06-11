@@ -74,9 +74,10 @@ class Hangman:
         together = ''.join(self.chosen_word)
         print('The word was: {}'.format(together))
         break
-      if self.tries_left == 0:
+      if self.tries_left == 1:
         self.game_over = True
         together = ''.join(self.chosen_word)
+        print('\nhangman8.jpg')
         print('\nYou lose! ):')
         print('The word was: {}'.format(together))
         break
